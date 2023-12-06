@@ -19,7 +19,6 @@
 body {
     min-height: 100%;
     font-family: 'Poppins', sans-serif;
-    background-image: url(../img/nouveautes-2018-2x.png);
     background-repeat: round;
     overflow: hidden;
 }
