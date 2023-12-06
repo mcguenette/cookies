@@ -97,7 +97,7 @@ span.three {
     justify-content: flex-start;
     gap: 0.4rem;
     width: 450px;
-    height: 40%;
+    height: 290px;
     padding: 20px;
     background-color: var(--light-color);
     border-radius: 6px;
@@ -142,18 +142,19 @@ span.three {
     font-size: 34px;
     color: var(--primary-dark);
     justify-content: left;
-    padding: 5px 22px 0px;
+    padding: 5px 20px 0px;
 }
 
 .modal .modal-button {
-    justify-content: space-evenly;
-    padding: 10px 22px 10px;
+    justify-content: flex-start;
+    padding: 10px 20px 10px;
+    gap: 20px;
 }
 
 .modal-content {
     display: flex;
     gap: 2px;
-    padding: 5px 22px 15px;
+    padding: 10px 20px 10px;
     color: var(--primary-dark);
     flex-direction: column;
     align-items: flex-start;
@@ -165,6 +166,7 @@ span.three {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    line-height: 26px;
 }
 
 .modal-front .modal-content{
@@ -191,6 +193,8 @@ span.three {
 
 .modal-back .modal-content h3 {
     text-align: center;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .overlay {
