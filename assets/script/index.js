@@ -47,9 +47,39 @@ function getCookie(name) {
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
+function getBrowser() {
+    const browser = navigator.userAgent;
+
+    if (browser.includes('Firefox')) return 'Firefox';
+    if (browser.includes('Edge')) return 'Edge';
+    if (browser.includes('Chrome')) return 'Chrome';
+
+    return 'Browser not found';
+}
+
+// Function to get OS name
+function getOperatingSystem() {
+    const os = navigator.userAgent;
+
+    if (os.includes('Win')) return 'Windows';
+    if (os.includes('Mac')) return 'MacOS';
+
+    return 'OS not found';
+}
+
 function updateCookies() {
     const timestamp = new Date().toLocaleTimeString();
-    console.log(`${timestamp} - Cookies:`, getCookie('savedPreferences'));
+    const savedPreferences = getCookie('savedPreferences');
+
+    if (savedPreferences) {
+        const options = JSON.parse(savedPreferences);
+
+        const browserInfo = options.browser ? `Browser: ${getBrowser()}` : '';
+        const osInfo = options.os ? `OS: ${getOperatingSystem()}` : '';
+        const screenInfo = (options.width || options.height) ? `Screen Width x Height: ${options.width ? ` Width:${screen.width}` : ''} ${options.height ? `& Height:${screen.height}` : ''}` : '';
+
+        console.log(`${timestamp} - Cookies: ${browserInfo} ${osInfo} ${screenInfo}`);
+    }
 }
 
 function hasCookies() {
@@ -61,7 +91,6 @@ function hasCookies() {
         return cookiesEnabled;
 
     } catch (error) {
-
         return false;
     }
 }
@@ -71,17 +100,17 @@ function cookiesAreStored() {
     return savedPreferences !== undefined;
 }
 
-function cookiesAreRejected() {
-    const rejectedCookies = getCookie('rejectedCookies');
-    return rejectedCookies !== undefined;
+function rejectedCookies() {
+    const rejected = getCookie('rejectedCookies');
+    return rejected !== undefined;
 }
 
 function showModal() {
     const cookiesEnabled = hasCookies();
     const cookiesStored = cookiesAreStored();
-    const rejectedCookies = cookiesAreRejected();
+    const rejected = rejectedCookies();
 
-    if (!cookiesEnabled || (!cookiesStored && !rejectedCookies)) {
+    if (!cookiesEnabled || (!cookiesStored && !rejected)) {
         showFrontModal();
     }
 }
