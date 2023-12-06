@@ -28,7 +28,10 @@
                         <h2>Cookies</h2>
                     </div>
                     <div class="modal-content">
-                        
+                        <p>We use cookies to improve your experience on our website.
+                            By clicking "Accept", you agree to the use of cookies for
+                            marketing and analytics purposes.
+                        </p>
                     </div>
                     <div class="modal-button">
                         <input type="button" value="Accept" id="accept-btn" class="primary-button">
@@ -40,17 +43,18 @@
                         <h2>Settings</h2>
                     </div>
                     <div class="modal-content">
-                        <ul>
-                            <li><label for="browser" id="browser">Browser</label><input name="browser" type="checkbox"></li>
-                            <li><label for="operating-system" id="op-system">Browser</label><input name="operating-system" type="checkbox"></li>
-                            <li><label for="screen-width" id="width">Browser</label><input name="screen-width" type="checkbox"></li>
-                            <li><label for="screen-height" id="height">Browser</label><input name="screen-height" type="checkbox"></li>
-                    </ul>
+                        <div><h3>Browser</h3><input name="browser" type="checkbox" id="toggle-one" class="checkbox"><label for="toggle-one" class="switch browser-input"></label></div>
+                        <div><h3>Operating System</h3><input name="operating-system" type="checkbox" id="toggle-two" class="checkbox"><label for="toggle-two" class="switch op-system"></label></div>
+                        <div><h3>Screen Width</h3><input name="screen-width" type="checkbox" id="toggle-three" class="checkbox"><label for="toggle-three" class="switch width"></label></div>
+                        <div><h3>Screen Height</h3><input name="screen-height" type="checkbox" id="toggle-four" class="checkbox"><label for="toggle-four" class="switch height"></label></div>
+                    </div>
+                    <div class="modal-button">
+                        <input type="button" value="Save Preferences" id="save-btn" class="primary-button">
                     </div>
                 </div>
             </div>
             <div class="overlay hidden"></div>
-            <div>
+            <div class="paragraph-content">
                 <p>
                     A <span class="one">cookie</span> is a small piece of text sent to your browser by a website
                     you visit. It helps the site remember <span class="two">information</span> about

@@ -8,6 +8,11 @@ const backModal = select('.modal-back');
 const overlay = select('.overlay');
 const settingsButton = select('#settings-btn');
 const acceptButton = select('#accept-btn');
+const browserInput = select('#browser-input');
+const opInput = select('#op-system');
+const width = select('#width');
+const height = select('#height');
+
 
 // Modal Functions
   function showFrontModal() {
@@ -21,9 +26,8 @@ const acceptButton = select('#accept-btn');
     frontModal.classList.add('hidden');
     backModal.classList.remove('hidden');
     modal.style.display = 'flex';
-    startModalCountdown();
   }
-  
+
   function closeModal() {
     frontModal.classList.add('hidden');
     backModal.classList.add('hidden');
@@ -34,7 +38,7 @@ const acceptButton = select('#accept-btn');
 
   onEvent('click', overlay, closeModal);
   onEvent('click', settingsButton, showBackModal);
-  setTimeout(showFrontModal, 100);
+  setTimeout(showFrontModal, 1000);
 
 // function getCookie() {
     
