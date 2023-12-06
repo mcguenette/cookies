@@ -1,0 +1,143 @@
+@charset "utf-8";
+@import url(./reset.css);
+
+:root {
+    --primary-dark: #202124;
+    --secondary-dark-color: #ffffff0d;
+    --light-color: #f3f9ff;
+    --primary-blue: #c4dfff;
+    --secondary-blue: rgb(0, 119, 198);
+    --primary-green: rgb(170 204 55);
+    --secondary-green: #3eb667;
+    --primary-red: #f05033;
+    --secondary-red: #db2806;
+    --primary-orange: #f90;
+    --secondary-orange: rgb(212, 127, 0);
+    --primary-purple: #90f;
+}
+
+body {
+    min-height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../img/nouveautes-2018-2x.png);
+    background-repeat: round;
+    overflow: hidden;
+}
+
+header {
+    height: 0px;
+}
+
+main {
+    min-height: 100dvh;
+}
+
+.container {
+    width: min(100% - 30px, 1080px);
+    margin-inline: auto;
+}
+
+/* Modal */
+.modal-wrapper {
+    position: relative;
+    margin-inline: auto;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+        rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    width: 600px;
+    height: 300px;
+    padding: 20px;
+    background-color: rgb(62 182 103 / 60%);
+    border-radius: 6px;
+    z-index: 2;
+}
+
+
+/* Flip animation styles */
+.modal-container {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+}
+
+.modal.hidden .modal-container {
+    transform: rotateY(180deg);
+}
+
+.modal-front,
+.modal-back {
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.modal-back {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .modal-back {
+    transform: rotateY(180deg);
+} */
+
+/* Header and content styles */
+.modal .modal-header, .modal-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal .modal-header {
+    font-size: 34px;
+    color: var(--primary-orange);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px 22px 15px;
+    justify-content: center;
+    color: var(--light-color);
+}
+
+.modal-front .modal-content{
+    align-items: flex-start;
+}
+
+.modal-content p {
+    text-align: center;
+}
+
+
+.modal-content span {
+    color: var(--primary-orange);
+    font-weight: 600;
+}
+
+.modal-content li {
+    font-size: 14px;
+}
+
+.modal-front .modal-content h3, .modal-content li {
+    text-align: left;
+}
+
+.modal-back .modal-content h3 {
+    text-align: center;
+}
